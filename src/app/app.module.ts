@@ -10,10 +10,16 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { TableModule } from 'primeng/table';
 import { SearchComponent } from './search/search.component';
 import { SharedModule } from './shared/shared.module';
+import { HeaderComponent } from './b1tl/header/header.component';
+import { MainComponent } from './b1tl/main/main.component';
+import { FooterComponent } from './b1tl/footer/footer.component';
 @NgModule({
   declarations: [
     AppComponent,
-    SearchComponent
+    SearchComponent,
+    HeaderComponent,
+    MainComponent,
+    FooterComponent,
   ],
   imports: [
     FormsModule,
