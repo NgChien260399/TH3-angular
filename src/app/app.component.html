@@ -1,1 +1,156 @@
-<router-outlet></router-outlet>
+<!-- <app-search></app-search> -->
+
+<div class="header-bottom_area header-sticky stick">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4 col-sm-4 d-lg-none d-block">
+                <div class="header-logo">
+                    <a href="index.html">
+                        <img src="assets/images/menu/logo/2.png" alt="Hiraola's Header Logo">
+                    </a>
+                </div>
+            </div>
+            <div class="col-lg-9 d-none d-lg-block position-static">
+                <div class="main-menu_area">
+                    <nav>
+                        <ul>
+                            <li *ngFor="let mn of menus" class="dropdown-holder"><a href="#">{{mn.name}}</a>
+                              <ng-container *ngIf="mn.childs && mn.childs.length>0">
+                                <ul class="hm-dropdown">
+                                  <li *ngFor="let m of mn.childs"><a href="#">{{m.name}}</a></li>
+                              </ul>
+                              </ng-container> 
+                            </li>  
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-8 col-sm-8">
+                <div class="header-right_area">
+                    <ul>
+                        <li>
+                            <a href="wishlist.html" class="wishlist-btn">
+                                <i class="ion-android-favorite-outline"></i>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#mobileMenu" class="mobile-menu_btn toolbar-btn color--white d-lg-none d-block">
+                                <i class="ion-navicon"></i>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#miniCart" class="minicart-btn toolbar-btn">
+                                <i class="ion-bag"></i>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+  </div>
+  <div class="container">
+    <div class="row">
+      <div class="shop-product-wrap grid gridview-3 row">
+        <div *ngFor="let pro of products" class="col-lg-4">
+          <div class="slide-item">
+            <div class="single_product">
+              <div class="product-img">
+                <a href="single-product.html">
+                  <img class="primary-img" src="{{pro.primary_img}}" alt="Hiraola's Product Image">
+                  <img class="secondary-img" src="{{pro.secondary_img}}" alt="Hiraola's Product Image">
+                </a>
+                <div class="add-actions">
+                  <ul>
+                    <li><a class="hiraola-add_cart" href="cart.html" data-toggle="tooltip" data-placement="top"
+                        title="Add To Cart"><i class="ion-bag"></i></a>
+                    </li>
+                    <li><a class="hiraola-add_compare" href="compare.html" data-toggle="tooltip" data-placement="top"
+                        title="Compare This Product"><i class="ion-ios-shuffle-strong"></i></a>
+                    </li>
+                    <li class="quick-view-btn" data-toggle="modal" data-target="#exampleModalCenter"><a
+                        href="javascript:void(0)" data-toggle="tooltip" data-placement="top" title="Quick View"><i
+                          class="ion-eye"></i></a></li>
+                  </ul>
+                </div>
+              </div>
+              <div class="hiraola-product_content">
+                <div class="product-desc_info">
+                  <h6><a class="product-name" href="single-product.html">{{pro.product_name}}</a></h6>
+                  <div class="price-box">
+                    <span class="new-price">£90.36</span>
+                  </div>
+                  <div class="additional-add_action">
+                    <ul>
+                      <li><a class="hiraola-add_compare" href="wishlist.html" data-toggle="tooltip" data-placement="top"
+                          title="Add To Wishlist"><i class="ion-android-favorite-outline"></i></a>
+                      </li>
+                    </ul>
+                  </div>
+                  <div class="rating-box">
+                    <ul>
+                      <li><i class="fa fa-star-of-david"></i></li>
+                      <li><i class="fa fa-star-of-david"></i></li>
+                      <li><i class="fa fa-star-of-david"></i></li>
+                      <li><i class="fa fa-star-of-david"></i></li>
+                      <li class="silver-color"><i class="fa fa-star-of-david"></i></li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="list-slide_item">
+            <div class="single_product">
+              <div class="product-img">
+                <a href="single-product.html">
+                  <img class="primary-img" src="{{pro.primary_img}}" alt="Hiraola's Product Image">
+                  <img class="secondary-img" src="{{pro.secondary_img}}" alt="Hiraola's Product Image">
+                </a>
+              </div>
+              <div class="hiraola-product_content">
+                <div class="product-desc_info">
+                  <h6><a class="product-name" href="single-product.html">{{pro.product_name}}</a></h6>
+                  <div class="rating-box">
+                    <ul>
+                      <li><i class="fa fa-star-of-david"></i></li>
+                      <li><i class="fa fa-star-of-david"></i></li>
+                      <li><i class="fa fa-star-of-david"></i></li>
+                      <li><i class="fa fa-star-of-david"></i></li>
+                      <li class="silver-color"><i class="fa fa-star-of-david"></i></li>
+                    </ul>
+                  </div>
+                  <div class="price-box">
+                    <span class="new-price">{{pro.price}}</span>
+                  </div>
+                  <div class="product-short_desc">
+                    <p>The effects of gold are subtle, but definitely apparent. ... It was considered that gold possessed
+                      an energy that brought warm, soothing vibrations to the body to aid healing, for when the body
+                      relaxes and the blood vessels in the cells aren't as constricted, blood can move through the tissue
+                      spaces more easily.</p>
+                  </div>
+                </div>
+                <div class="add-actions">
+                  <ul>
+                    <li><a class="hiraola-add_cart" href="cart.html" data-toggle="tooltip" data-placement="top"
+                        title="Add To Cart">Add To Cart</a></li>
+                    <li><a class="hiraola-add_compare" href="compare.html" data-toggle="tooltip" data-placement="top"
+                        title="Compare This Product"><i class="ion-ios-shuffle-strong"></i></a></li>
+                    <li class="quick-view-btn" data-toggle="modal" data-target="#exampleModalCenter"><a
+                        href="javascript:void(0)" data-toggle="tooltip" data-placement="top" title="Quick View"><i
+                          class="ion-eye"></i></a></li>
+                    <li><a class="hiraola-add_compare" href="wishlist.html" data-toggle="tooltip" data-placement="top"
+                        title="Add To Wishlist"><i class="ion-android-favorite-outline"></i></a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+  
+      </div>
+    </div>
+  
+  </div>
+  

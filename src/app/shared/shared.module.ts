@@ -1,35 +1,17 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import {InputTextModule} from 'primeng/inputtext';
-import {TableModule} from 'primeng/table';
 import {PanelModule} from 'primeng/panel';
-import {CalendarModule} from 'primeng/calendar';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import {DropdownModule} from 'primeng/dropdown';
-import {FileUploadModule} from 'primeng/fileupload';
+import {TableModule} from 'primeng/table';
 @NgModule({
-  declarations: [],
+  declarations: [
+  ],
   imports: [
-    FormsModule,
-    PanelModule,
     TableModule,
-    InputTextModule,
-    CommonModule,
-    CalendarModule,
-    DropdownModule,
-    FileUploadModule,
-    ReactiveFormsModule,
+    PanelModule    
   ],
   exports: [
-    ReactiveFormsModule,
-    FormsModule,
-    PanelModule,
     TableModule,
-    InputTextModule,
-    CommonModule,
-    CalendarModule,
-    DropdownModule,
-    FileUploadModule   
+    PanelModule   
   ],
-})
-export class SharedModule { }
+  providers: []
+}) 
+export class SharedModule { } 
