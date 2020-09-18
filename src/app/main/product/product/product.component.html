@@ -1,0 +1,119 @@
+<div class="breadcrumbs" id="breadcrumbs">
+  <ul class="breadcrumb">
+    <li>
+      <i class="ace-icon fa fa-home home-icon"></i>
+      <a href="#">Trang chủ</a>
+    </li>
+    <li class="active">Quản lý sản phẩm</li>
+  </ul>
+  <div class="nav-search">
+    <p class="pull-right no-margin">
+      <a (click)="createModal()" class="btn btn-success btn-xs">
+        <i class="fa fa-plus"></i>&nbsp;&nbsp; Thêm
+      </a>
+    </p>
+  </div>
+</div>
+<div class="row">
+  <div class="col-xs-12">
+    <!-- PAGE CONTENT BEGINS -->
+    
+    <p-table selectionMode="single" [value]="sanphams" styleClass="p-datatable-gridlines">
+      <ng-template pTemplate="header">
+        <tr>
+          <th>STT</th>
+          <th >Tên sp</th>
+          <th >Ảnh</th>
+          <th>Số lượng</th>
+          <th >Loại SP</th>
+          <th >Tác vụ</th>
+        </tr>
+      </ng-template>
+      <ng-template pTemplate="body" let-item  let-i="rowIndex">
+        <tr>
+          <td>{{ i + 1 }}</td>
+          <td>{{ item.tensp }}</td>
+          <td>{{ item.anh }}</td>
+          <td>{{ item.soluong }}</td>
+          <td>{{ item.loai }}</td>
+          <td class="action-col">
+            <div class="btn-group">
+              <button title="" class="btn btn-xs btn-white btn-default">  
+                <i class="ace-icon fa fa-edit"></i>
+              </button>
+              <button title="" class="btn btn-xs btn-white btn-default">
+                <i class="ace-icon fa fa-adjust"></i>
+              </button>
+            </div>  
+          </td>
+        </tr>
+      </ng-template>
+    </p-table>
+    <!-- PAGE CONTENT ENDS -->
+  </div>
+  <!-- /.col -->
+</div>
+<!-- /.row -->
+<div  id="createUserModal" class="modal fade" role="dialog">
+    <div class="modal-dialog modal-lg full-height-modal">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 class="modal-title">Thêm sản phẩm</h4>
+        </div>
+        <div class="modal-body no-padding">
+          <form [formGroup]="formdata"  class="form-horizontal utehy-form">
+            <div class="form-group">
+              <label class="col-sm-1 control-label no-padding-right"> Tên SP </label>
+              <div class="col-sm-6">
+                <input type="text" placeholder="Tên sản phẩm" formControlName="tensp" />
+              </div>
+              <label class="col-sm-2 control-label no-padding-right"> Ngày Thêm </label>
+              <div class="col-sm-3">
+                <p-calendar formControlName="ngaythem" [locale]="locale_vn" formControlName="hoten" [(ngModel)]="datetime" [showIcon]="true" inputId="icon"></p-calendar>
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="col-sm-1 control-label no-padding-right"> Số lượng</label>
+              <div class="col-sm-6">
+                <input type="text" formControlName="soluong" placeholder="Số lượng" />
+              </div>
+              <label class="col-sm-2 control-label no-padding-right"> Loại SP</label>
+              <div class="col-sm-3">
+                <p-dropdown [options]="genders" formControlName="loaisp"  [(ngModel)]="selectedGT" [style]="{'width':'100%'}"></p-dropdown>
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="col-sm-1 control-label no-padding-right"> Mô tả</label>
+              <div class="col-sm-11">
+                <input type="text" formControlName="mota" placeholder="Mô tả" />
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="col-sm-1 control-label no-padding-right"> Hình ảnh</label>
+              <div class="col-sm-11">
+                <p-fileUpload #file_image mode="advanced" [showUploadButton]="false" cancelLabel="Hủy" chooseLabel ="Chọn ảnh"   multiple="false" accept="image/*" maxFileSize="1000000">
+                    <ng-template pTemplate="content">
+                        <ul *ngIf="uploadedFiles.length">
+                            <li *ngFor="let file of uploadedFiles">{{file.name}} - {{file.size}} bytes</li>
+                        </ul>
+                    </ng-template>
+              </p-fileUpload>
+              </div>
+            </div>
+          </form> 
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default btn-sm">
+            <i class="fa fa-bell"></i> Làm mới
+          </button>
+          <button type="button" (click)="onSubmit()" class="btn btn-success btn-sm btn-submit">
+            <i class="fa fa-save"></i> Đồng ý
+          </button>
+          <button type="button" class="btn btn-default btn-sm" (click)="closeModal()">
+            <i class="fa fa-times"></i> Đóng lại
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+ 
